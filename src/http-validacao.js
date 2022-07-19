@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+const fetch = (...args) => import ('node-fetch').then(({default: fetch}) => fetch(...args));
 
 function manejarErros(erro) {
     throw new Error(erro.message);
@@ -32,4 +32,4 @@ async function validaURLs(arraylinks) {
 
 }
 
-export default validaURLs;
+module.exports = validaURLs;

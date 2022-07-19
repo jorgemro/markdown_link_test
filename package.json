@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cli": "node src/cli.mjs /arquivos/"
+    "test": "jest ./test/",
+    "cli": "node src/cli.js /arquivos/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.1",
-    "node-fetch": "^3.2.6"
+    "chalk": "^4.0.1",
+    "node-fetch": "^3.2.9"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
   }
 }

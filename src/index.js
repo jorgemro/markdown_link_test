@@ -1,7 +1,6 @@
-import fs from 'fs';
-import chalk from 'chalk';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const fs = require('fs');
+const chalk = require('chalk');
+const path = require('path');
 
 function extrairLinks(texto) {
     const regex = /\[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)/gm;
@@ -21,9 +20,6 @@ function tratarErro(erro) {
 }
 
 async function pegarTextoArquivo(caminhoArquivo) {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname =  path.dirname(__filename);
-
     const caminhoAbsoluto = path.join(__dirname, '..', caminhoArquivo);
     const encoding = "utf-8";
 
@@ -36,12 +32,9 @@ async function pegarTextoArquivo(caminhoArquivo) {
         }));
         
         return resultados;
-        // const texto = await fs.promises.readFile(caminhoArquivo, encode);
-        // const links = extrairLinks(texto);
-        // return links;
     } catch(erro) {
         tratarErro(erro);
     }
 }
 
-export default pegarTextoArquivo;
+module.exports = pegarTextoArquivo;
