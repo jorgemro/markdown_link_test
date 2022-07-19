@@ -6,12 +6,12 @@ const entrada = process.argv;
 
 async function processaEntrada(caminhoArquivo) {
     
-    const arrayLinksArquivos = await pegaArquivo(caminhoArquivo[2]);
+    const arrayLinks = await pegaArquivo(caminhoArquivo[2]);
 
     if (caminhoArquivo[3] == "validar") {
-        arrayLinksArquivos.map(async links => console.log( await validaURLs(links)));
+         console.log( await validaURLs(arrayLinks));
     } else {
-        console.log(chalk.yellow("links do arquivo: "), arrayLinksArquivos);
+        console.log(chalk.yellow("links do arquivo: "), arrayLinks);
     }  
 }
 
